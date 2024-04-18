@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 4000
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: salomao_blog_development
+
+test:
+  <<: *default
+  database: salomao_blog_test
+
+production:
+  <<: *default
+  database: salomao_blog_production
