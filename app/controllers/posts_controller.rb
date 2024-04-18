@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = Post.new(permitted_params)
 
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: 'Post was successfully created.'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(permitted_params)
-      redirect_to @post
+      redirect_to @post, notice: 'Post was successfully updated.'
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
 
-    redirect_to root_path
+    redirect_to root_path, notice: 'Post was successfully destroyed.'
   end
 
   private
@@ -51,6 +51,6 @@ class PostsController < ApplicationController
   end
 
   def permitted_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :category_id)
   end
 end
