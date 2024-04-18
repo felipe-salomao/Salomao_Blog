@@ -1,11 +1,23 @@
-<h1>POSTS</h1>
+<%= render_if @highlights[0].present?, 'longer_featured', post: @highlights[0] %>
 
-<%= link_to 'New Post', new_post_path %>
+<div class="row mb-2">
+  <%= render_if @highlights[1].present?, 'medium_featured', post: @highlights[1] %>
+  <%= render_if @highlights[2].present?, 'medium_featured', post: @highlights[2] %>
+</div>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post %>
-    </li>
-  <% end %>
-</ul>
+<div class="row g-5">
+  <div class="col-md-8">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+      From my Experience
+    </h3>
+
+    <p>
+      <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+    </p>
+
+    <%= render @posts %>
+    <%= render 'pagination' %>
+  </div>
+
+  <%= render 'right_side' %>
+</div>

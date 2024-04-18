@@ -1,0 +1,14 @@
+<article class="blog-post">
+  <h2 class="blog-post-title"><%= post.title %></h2>
+  <p class="blog-post-meta"><%= month_day_comma_year(post.created_at) %> by <a href="#">User</a></p>
+
+  <p><%= truncate(post.description, length: 150) %></p>
+
+  <p><%= link_to 'Continue reading ...', post, class: 'btn btn-link' %></p>
+
+  <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-secondary' %>
+  <%= link_to 'Destroy', post_path(post),
+    method: :delete,
+    data: { confirm: 'Are you sure?' },
+    class: 'btn btn-danger' %>
+</article>

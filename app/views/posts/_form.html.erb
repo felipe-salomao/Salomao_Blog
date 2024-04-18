@@ -1,21 +1,11 @@
-<%= form_with model: post do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-    <% post.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+<%= simple_form_for post do |form| %>
+  <%= form.input :title %>
+  <%= form.input :description, input_html: { rows: 10 } %>
 
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-    <% post.errors.full_messages_for(:description).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+  <br>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <p>
+    <%= form.button :submit, class: 'btn btn-primary' %>
+    <%= link_to 'Back', root_path, class: 'btn btn-secondary' %>
+  </p>
 <% end %>
