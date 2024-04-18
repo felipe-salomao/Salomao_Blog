@@ -1,5 +1,4 @@
 const { environment } = require("@rails/webpacker");
-const customConfig = require("./custom");
 const webpack = require("webpack");
 
 environment.plugins.append(
@@ -10,6 +9,5 @@ environment.plugins.append(
     Popper: ["popper.js", "default"],
   })
 );
-environment.config.merge(customConfig);
 
 module.exports = environment;
