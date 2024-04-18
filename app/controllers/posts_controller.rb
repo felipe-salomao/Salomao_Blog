@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   
   def index
@@ -15,11 +16,11 @@ class PostsController < ApplicationController
   def show; end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def create
-    @post = Post.new(permitted_params)
+    @post = current_user.posts.new(permitted_params)
 
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'

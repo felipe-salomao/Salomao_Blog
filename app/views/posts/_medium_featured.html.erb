@@ -7,7 +7,9 @@
 
       <h3 class="mb-0"><%= post.title %></h3>
 
-      <div class="mb-1 text-muted"><%= month_day_comma_year(post.created_at) %></div>
+      <div class="mb-1 text-muted">
+        <%= month_day_comma_year(post.created_at) %> by <%= post.user.email %>
+      </div>
 
       <p class="card-text mb-auto">
         <%= truncate(post.description, length: 150)  %>

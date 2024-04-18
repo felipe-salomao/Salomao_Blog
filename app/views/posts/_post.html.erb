@@ -1,6 +1,8 @@
 <article class="blog-post">
   <h2 class="blog-post-title"><%= post.title %></h2>
-  <p class="blog-post-meta"><%= month_day_comma_year(post.created_at) %> by <a href="#">User</a></p>
+  <p class="blog-post-meta">
+    <%= month_day_comma_year(post.created_at) %> <%= post.user.email %>
+  </p>
 
   <p><%= truncate(post.description, length: 150) %></p>
 
