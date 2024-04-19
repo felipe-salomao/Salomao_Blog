@@ -53,12 +53,12 @@ class CategoriesController < ApplicationController
 
   private
 
+  def permitted_params
+    params.require(:category).permit(:name)
+  end
+
   def set_category
     @category = Category.find(params[:id])
     authorize @category
-  end
-
-  def permitted_params
-    params.require(:category).permit(:name)
   end
 end

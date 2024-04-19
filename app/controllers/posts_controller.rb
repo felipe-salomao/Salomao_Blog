@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   include Paginable
 
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[edit update destroy]
   before_action :set_categories, only: %i[new create edit update]
   
   def index
@@ -27,7 +27,10 @@ class PostsController < ApplicationController
     @archives = Post.group_by_month(:created_at, format: '%B %Y').count
   end
 
-  def show; end
+  def show
+    @post = Post.includes(comments: :user).find(params[:id])
+    authorize @post
+  end
 
   def new
     @post = current_user.posts.new
@@ -61,6 +64,10 @@ class PostsController < ApplicationController
 
   private
 
+  def permitted_params
+    params.require(:post).permit(:title, :description, :category_id)
+  end
+
   def set_post
     @post = Post.find(params[:id])
     authorize @post
@@ -68,9 +75,5 @@ class PostsController < ApplicationController
 
   def set_categories
     @categories = Category.sorted
-  end
-
-  def permitted_params
-    params.require(:post).permit(:title, :description, :category_id)
   end
 end
