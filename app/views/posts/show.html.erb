@@ -1,12 +1,17 @@
 <article class="blog-post">
+  <strong class="d-inline-block mb-2 text-primary">
+    <%= @post.category.name %>
+  </strong>
+
   <h2 class="blog-post-title"><%= @post.title %></h2>
+
   <p class="blog-post-meta">
-    <%= month_day_comma_year(@post.created_at) %> by <%= @post.user.email %>
+    <%= render 'post_detail', post: @post %>
   </p>
 
   <p><%= @post.description %></p>
 
-  <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary' if policy(@post).update? %>
+  <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' if policy(@post).update? %>
 
   <%= simple_form_for @post, url: post_path(@post), method: :delete, html: { class: 'd-inline' } do |f| %>
     <%= f.button :button, 'Destroy', class: 'btn btn-danger', onclick: "return confirm('Are you sure?');" if policy(@post).destroy? %>

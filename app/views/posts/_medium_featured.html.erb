@@ -8,11 +8,11 @@
       <h3 class="mb-0"><%= post.title %></h3>
 
       <div class="mb-1 text-muted">
-        <%= month_day_comma_year(post.created_at) %> by <%= post.user.email %>
+        <%= render 'post_detail', post: post %>
       </div>
 
       <p class="card-text mb-auto">
-        <%= truncate(post.description, length: 150)  %>
+        <%= truncate(post.description, length: 100) %>
       </p>
 
       <%= link_to 'Continue reading...', post, class: 'stretched-link' %>
