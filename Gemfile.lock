@@ -95,6 +95,8 @@ GEM
     ffi (1.16.3-x64-mingw32)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    groupdate (5.2.4)
+      activesupport (>= 5)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -270,6 +272,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.9)
+  groupdate (~> 5.2)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   kaminari (~> 1.2)
