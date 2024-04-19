@@ -8,8 +8,8 @@
 
   <p><%= link_to 'Continue reading ...', post, class: 'btn btn-link' %></p>
 
-  <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-secondary' %>
+  <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-secondary' if policy(post).update? %>
   <%= simple_form_for post, url: post_path(post), method: :delete, html: { class: 'd-inline' } do |f| %>
-    <%= f.button :button, 'Destroy', class: 'btn btn-danger', onclick: "return confirm('Are you sure?');" %>
+    <%= f.button :button, 'Destroy', class: 'btn btn-danger', onclick: "return confirm('Are you sure?');" if policy(post).destroy? %>
   <% end %>
 </article>

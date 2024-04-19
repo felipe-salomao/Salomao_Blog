@@ -49,6 +49,7 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def permitted_params

@@ -1,6 +1,6 @@
 <h1>Categories</h1>
 <p>
-  <%= link_to 'New Category', new_category_path, class: 'btn btn-primary' %>
+  <%= link_to 'New Category', new_category_path, class: 'btn btn-primary' if policy(:category).new? %>
 </p>
 <table class="table table-striped table-hover table-bordered">
   <thead>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= category.name %></td>
         <td>
-          <%= link_to 'Edit', edit_category_path(category) %>
+          <%= link_to 'Edit', edit_category_path(category) if policy(category).edit? %>
           <%= simple_form_for category, url: category_path(category), method: :delete, html: { class: 'd-inline' } do |f| %>
-            <%= f.button :button, 'Destroy', class: 'btn btn-link', onclick: "return confirm('Are you sure?');" %>
+            <%= f.button :button, 'Destroy', class: 'btn btn-link', onclick: "return confirm('Are you sure?');" if policy(category).destroy? %>
           <% end %>
         </td>
       </tr>
