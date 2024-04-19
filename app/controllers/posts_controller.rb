@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_categories, only: %i[new create edit update]
   
   def index
     @categories = Category.sorted
@@ -63,6 +64,10 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
     authorize @post
+  end
+
+  def set_categories
+    @categories = Category.sorted
   end
 
   def permitted_params
