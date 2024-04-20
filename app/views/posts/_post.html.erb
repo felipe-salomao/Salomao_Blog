@@ -11,10 +11,11 @@
 
   <p><%= truncate(post.description, length: 150) %></p>
 
-  <p><%= link_to 'Continue reading ...', post, class: 'btn btn-link' %></p>
+  <p><%= link_to t('posts.continue_reading'), post, class: 'btn btn-link' %></p>
 
-  <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary' if policy(post).update? %>
-  <%= simple_form_for post, url: post_path(post), method: :delete, html: { class: 'd-inline' } do |f| %>
-    <%= f.button :button, 'Destroy', class: 'btn btn-danger', onclick: "return confirm('Are you sure?');" if policy(post).destroy? %>
-  <% end %>
+  <%= link_to t('app.button.edit'), edit_post_path(post), class: 'btn btn-primary' if policy(post).update? %>
+  <%= link_to t('app.button.destroy'), post_path(post),
+    method: :delete,
+    data: { confirm: t('app.message.confirm_destroy') },
+    class: 'btn btn-danger' if policy(post).destroy? %>
 </article>

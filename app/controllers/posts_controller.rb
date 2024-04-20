@@ -6,10 +6,9 @@ class PostsController < ApplicationController
   before_action :set_categories, only: %i[index new create edit update]
   
   def index
-    @archives = Post.group_by_month(:created_at, format: '%B %Y').count
+    @archives = Post.group_by_month(:created_at, format: '%B %Y', locale: :en).count
   
-    @categories = Category.sorted
-    category = @categories.select { |c| c.name == params[:category] }[0] if params[:category].present?
+    category = @categories.find { |c| c.name == params[:category] } if params[:category].present?
     month_year = @archives.find { |m| m[0] == params[:month_year] }&.first if params[:month_year].present?
 
     @highlights = Post.includes(:category, :user)
@@ -41,7 +40,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(permitted_params)
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post, notice: t('.success')
     else
       render :new
     end
@@ -51,7 +50,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(permitted_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to @post, notice: t('.success')
     else
       render :edit
     end
@@ -60,7 +59,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
 
-    redirect_to root_path, notice: 'Post was successfully destroyed.'
+    redirect_to root_path, notice: t('.success')
   end
 
   private

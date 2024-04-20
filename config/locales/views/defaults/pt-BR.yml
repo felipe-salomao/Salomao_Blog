@@ -1,0 +1,35 @@
+pt-BR:
+  app:
+    title: Salomão Blog
+    menu:
+      categories: Categorias
+      edit_user: Alterar Usuário
+      sign_out: Sair
+      sign_in: Entrar
+      sign_up: Criar conta
+    footer:
+      back_to_top: Voltar ao início
+      template_info: Modelo de blog inspirado em
+      developer: Desenvolvedor
+    pagination:
+      previous: Anterior
+      next: Próximo
+    word:
+      by: por
+      in: em
+      name: Nome
+      actions: Ações
+    button:
+      back: Voltar
+      destroy: Excluir
+      edit: Editar
+    edit:
+      title: "Alterando %{model}"
+    message:
+      confirm_destroy: Você tem certeza que deseja excluir?
+    create:
+      success: "%{model} criado(a) com sucesso."
+    update:
+      success: "%{model} alterado(a) com sucesso."
+    destroy:
+      success: "%{model} excluído(a) com sucesso."

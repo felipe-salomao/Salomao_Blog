@@ -1,0 +1,25 @@
+pt-BR:
+  posts:
+    continue_reading: Continue lendo...
+    about:
+      title: Sobre
+      description: Sou Felipe Salomão e gosto de estudar programação em Ruby on Rails.
+    archives: Arquivos
+    elsewhere: Em outro lugar
+    index:
+      subtitle: Da minha Experiência
+      new_post: Nova Publicação
+    new:
+      title: Nova Publicação
+    create:
+      success: Publicação criada com sucesso.
+    update:
+      success: Publicação alterada com sucesso.
+    destroy:
+      success: Publicação excluída com sucesso.
+    form:
+      choose_category: Escolha uma Categoria
+    show:
+      comments: Comentários
+      add_comment: "Adicione um comentário:"
+      login_create_comment: Por favor, faça o login para criar um comentário.

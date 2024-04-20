@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @post.comments.create(permitted_params.to_h.merge!({ user_id: current_user.id }))
-    redirect_to post_path(@post), notice: 'Comment was successfully created.'
+    redirect_to post_path(@post), notice: t('app.create.success', model: Comment.model_name.human)
   end
 
   def destroy
@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     authorize comment
 
     comment.destroy
-    redirect_to post_path(@post), notice: 'Comment was successfully destroyed.'
+    redirect_to post_path(@post), notice: t('app.destroy.success', model: Comment.model_name.human)
   end
 
   private

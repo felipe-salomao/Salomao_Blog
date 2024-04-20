@@ -1,2 +1,2 @@
-<%= month_day_comma_year(post.created_at) %> by
-<%= sub_masked_email(post.user.email) %>
+<%= month_day_comma_year(post.created_at) %>  <%= t('app.word.by') %>
+<%= sub_masked_email(post.user.email) %> <%= t('app.word.in') %>

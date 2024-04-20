@@ -3,7 +3,7 @@
     <%= f.input :body, input_html: { rows: 10 } %>
   </div>
 
-  <%= f.input :anonymous, as: :boolean, label: 'Comment anonymously' %>
+  <%= f.input :anonymous, as: :boolean, label: t('comments.index.commenter')  %>
 
   <div class="form-action">
     <%= f.button :submit, class: 'btn btn-primary' %>
