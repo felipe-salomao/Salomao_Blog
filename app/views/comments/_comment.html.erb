@@ -2,7 +2,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= month_day_comma_year(comment.created_at) %></h5>
     <h6 class="card-subtitle mb-2 text-muted">
-      Commenter: <%= comment.anonymous == 'active' ? 'Anonymous' : comment.user.email %>
+      Commenter: <%= comment.anonymous == 'active' ? 'Anonymous' : sub_masked_email(comment.user.email) %>
     </h6>
     <p class="card-text"><%= comment.body %></p>
     <%= link_to 'Destroy', post_comment_path(@post, comment),

@@ -1,2 +1,2 @@
 <%= month_day_comma_year(post.created_at) %> by
-<%= post.user.email %>
+<%= sub_masked_email(post.user.email) %>
