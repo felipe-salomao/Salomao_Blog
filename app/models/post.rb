@@ -7,7 +7,10 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }
 
+  paginates_per 3
+
   scope :desc_order, -> { order(created_at: :desc) }
+  scope :asc_order, -> { order(created_at: :asc) }
   scope :without_highlights, ->(ids) { where("id NOT IN(#{ids})") if ids.present? }
   scope :filter_by_category, ->(category) { where category_id: category.id if category.present? }
   scope :filter_by_archive, lambda { |month_year|

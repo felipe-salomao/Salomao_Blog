@@ -67,3 +67,5 @@ gem 'rolify', '~> 6.0'
 gem "groupdate", "~> 5.2"
 
 gem 'devise-i18n', "~> 1.10.1"
+
+gem 'dotenv-rails'

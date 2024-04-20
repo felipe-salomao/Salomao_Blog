@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @highlights = Post.includes(:category, :user)
                       .filter_by_category(category)
                       .filter_by_archive(month_year)
-                      .desc_order
+                      .asc_order
                       .first(3)
 
     highlight_ids = @highlights.pluck(:id).join(',')
