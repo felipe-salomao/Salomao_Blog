@@ -17,6 +17,8 @@ pt-BR:
       success: Publicação alterada com sucesso.
     destroy:
       success: Publicação excluída com sucesso.
+    attachment_create:
+      success: Publicação criada com sucesso.
     form:
       choose_category: Escolha uma Categoria
     show:
