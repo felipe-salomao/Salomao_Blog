@@ -29,7 +29,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(comments: :user).find(params[:id])
-    authorize @post
+
+    if @post.nil?
+      redirect_to new_post_path, alert: t('helpers.select.prompt')
+    else
+      authorize @post
+    end
   end
 
   def new
@@ -60,6 +65,24 @@ class PostsController < ApplicationController
     @post.destroy
 
     redirect_to root_path, notice: t('.success')
+  end
+
+  def attachment_create
+    file = params[:post][:attachment_file]
+    category_id = params[:post][:category_id]
+  
+    if file
+      file_path = Rails.root.join('tmp', file.original_filename)
+      File.open(file_path, 'wb') do |f|
+        f.write(file.read)
+      end
+  
+      ProcessPostJob.perform_later(current_user.id, file_path.to_s, category_id)
+      
+      redirect_to root_path, notice: t('.success')
+    else
+      redirect_to new_post_path, alert: t('helpers.select.prompt')
+    end
   end
 
   private

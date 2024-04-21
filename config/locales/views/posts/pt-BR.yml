@@ -23,3 +23,9 @@ pt-BR:
       comments: Comentários
       add_comment: "Adicione um comentário:"
       login_create_comment: Por favor, faça o login para criar um comentário.
+    attachment:
+      body: Voce pode fazer upload de um arquivo .txt para criar varios posts de uma vez.
+      description: "Seu arquivo deve seguir a seguinte estrutura:"
+      structure:
+        title: Título
+        description: Descrição

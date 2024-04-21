@@ -1,0 +1,16 @@
+<%= form_with model: @post, url: attachment_create_posts_path, method: :post, local: true, enctype: 'multipart/form-data' do |form| %>
+
+  <p><%= t('posts.attachment.body') %></p>
+  <p><%= t('posts.attachment.description') %></p>
+  <p><%= t('posts.attachment.structure.title')+' | '+t('posts.attachment.structure.description') %></p>
+  <p><%= t('posts.attachment.structure.title')+' | '+t('posts.attachment.structure.description') %></p>
+  <p><%= t('posts.attachment.structure.title')+' | '+t('posts.attachment.structure.description') %></p>
+
+  <%= form.label :attachment_file, 'Upload TXT' %>
+  <%= form.file_field :attachment_file %>
+
+  <%= form.label :category_id, t('app.menu.categories')+':' %>
+  <%= form.collection_select :category_id, @categories, :id, :name %>
+
+  <%= form.submit 'Enviar' %>
+<% end %>

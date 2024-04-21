@@ -23,3 +23,9 @@ en:
       comments: Comments
       add_comment: "Add a comment:"
       login_create_comment: Please, login to create a comment.
+    attachment:
+      body: You can upload a .txt file to create multiple posts at once.
+      description: "Your file must follow the following structure:"
+      structure:
+        title: Title
+        description: Description

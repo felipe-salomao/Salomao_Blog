@@ -146,7 +146,7 @@ pt-BR:
         other: 'Não foi possível gravar %{model}: %{count} erros'
   helpers:
     select:
-      prompt: Por favor selecione
+      prompt: Por favor selecione um arquivo
     submit:
       create: Criar %{model}
       submit: Salvar %{model}

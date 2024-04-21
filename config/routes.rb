@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
     resources :posts do
       resources :comments, only: %i[create destroy]
+
+      collection do
+        post 'attachment_create'
+      end
     end
 
     resources :categories

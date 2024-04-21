@@ -49,6 +49,8 @@ gem 'devise-i18n', "~> 1.10.1"
 
 gem 'dotenv-rails'
 
+gem 'sidekiq', '~> 6.4'
+
 group :development, :rspec, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
