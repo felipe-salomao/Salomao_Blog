@@ -1,24 +1,46 @@
 # Salomaoblog ![Tests](https://github.com/felipe-salomao/Salomao_Blog/actions/workflows/ruby.yml/badge.svg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This blog was created to apply knowledge in ruby ​​on rails.
 
-Things you may want to cover:
+<table>
+  <tr>
+    <td>Ruby version</td>
+    <td>
+      3.0.6
+    </td>
+  </tr>
+  <tr>
+    <td>Rails version</td>
+    <td>
+      6.1.7
+    </td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>
+      PostgreSQL
+    </td>
+  </tr>
+</table>
 
-* Ruby version
 
-* System dependencies
+## Initial settings to run the project
 
-* Configuration
+```bash
+# install Ruby on Rails dependencies
+bundle install
 
-* Database creation
+# install Node dependencies
+yarn install
 
-* Database initialization
+# create the development and test databases
+rails db:create
 
-* How to run the test suite
+# create the tables
+rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+# run the project
+rails s
+```
 
-* Deployment instructions
-
-* ...
+Open the browser at the address `http://localhost:3000`
